@@ -10,3 +10,27 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# Tap to Pay on Android (Cybersource / Visa Acceptance Devices)
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn com.squareup.okhttp.**
+-keep class com.squareup.okhttp.* { *; }
+-dontwarn okio.**
+
+-keep class io.mpos.** { *; }
+-dontwarn io.mpos.**
+-keep class com.visa.vac.tc.** {*;}
+-keep class com.nimbusds.jose.** {*;}
+-keep class org.bouncycastle.** {*;}
+-keep class retrofit2.** { *; }
+-keep interface retrofit2.** { *; }
+-keep class com.visa.auth.** { *; }
+-dontwarn com.visa.auth.**
+-keep class androidx.** { *; }
+
+# Visa Sensory Branding
+-keep class com.visa.SensoryBrandingView
+
+# Mastercard Sonic Branding
+-keep class com.mastercard.sonic.BuildConfig {*;}

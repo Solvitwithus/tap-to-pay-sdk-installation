@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.master"
-        minSdk = 24
+        minSdk = 31
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
@@ -22,20 +22,37 @@ android {
     buildTypes {
         release {
             optimization {
-                enable = false
+                enable = true
+            }
+        }
+        debug {
+            matchingFallbacks.apply {
+                clear()
+                add("release")
             }
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         compose = true
     }
+    packaging {
+        resources {
+            excludes.add("META-INF/*")
+            excludes.add("LICENSE.txt")
+            excludes.add("asm-license.txt")
+        }
+    }
 }
 
 dependencies {
+    // Tap to Pay on Android
+    implementation("io.payworks:paybutton-android:2.117.0")
+    implementation("io.payworks:mpos.android.taptophone:2.117.0")
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)

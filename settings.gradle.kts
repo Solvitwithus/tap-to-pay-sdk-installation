@@ -19,6 +19,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        exclusiveContent {
+            forRepository {
+                maven { url = uri("https://repo.visa.com/mpos-releases/") }
+            }
+            filter {
+                includeGroup("io.payworks")
+            }
+        }
     }
 }
 

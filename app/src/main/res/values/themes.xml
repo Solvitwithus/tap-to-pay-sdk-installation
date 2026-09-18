@@ -2,4 +2,35 @@
 <resources>
 
     <style name="Theme.Master" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Tap to Pay Default UI branding, applied to io.mpos.paybutton.PaybuttonActivity below -->
+    <style name="Theme.Master.TapToPhone" parent="Theme.PayButton2">
+        <!-- Text color -->
+        <item name="colorOnSurface">@color/black</item>
+
+        <!-- Background color -->
+        <item name="colorSurface">@color/white</item>
+
+        <!-- Contactless indicators -->
+        <item name="contactlessStateActiveColor">@color/dui_green</item>
+        <item name="contactlessStateInactiveColor">@color/dui_light_gray2</item>
+        <item name="contactlessStateErrorColor">@color/dui_red</item>
+
+        <!-- Transaction status -->
+        <item name="approvedStateColor">@color/dui_green</item>
+        <item name="declinedErrorStateColor">@color/dui_red</item>
+        <item name="preAuthorizedStateColor">@color/dui_dark_gray</item>
+
+        <!-- Filled buttons and animations primary color -->
+        <item name="colorPrimary">@color/dui_blue</item>
+
+        <!-- Used over the primary color for text on filled buttons and animation details -->
+        <item name="colorOnPrimary">@color/dui_white</item>
+
+        <!-- Corner radius for buttons and transaction status badges -->
+        <item name="smallComponentCornerSize">4dp</item>
+
+        <!-- Stroke color for icons and animations -->
+        <item name="animationStrokeColor">@color/dui_black</item>
+    </style>
 </resources>

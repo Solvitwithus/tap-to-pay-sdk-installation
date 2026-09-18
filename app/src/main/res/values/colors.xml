@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Tap to Pay Default UI branding -->
+    <color name="dui_green">#FF2E7D32</color>
+    <color name="dui_red">#FFC62828</color>
+    <color name="dui_dark_gray">#FF424242</color>
+    <color name="dui_light_gray2">#FFBDBDBD</color>
+    <color name="dui_blue">#FF1A1F71</color>
+    <color name="dui_white">#FFFFFFFF</color>
+    <color name="dui_black">#FF000000</color>
 </resources>

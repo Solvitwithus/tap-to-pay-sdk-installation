@@ -28,6 +28,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Applies our Tap to Pay Default UI branding (see Theme.Master.TapToPhone in themes.xml)
+             to the SDK's payment screen. -->
+        <activity
+            android:name="io.mpos.paybutton.PaybuttonActivity"
+            android:theme="@style/Theme.Master.TapToPhone"
+            tools:node="merge" />
     </application>
 
 </manifest>

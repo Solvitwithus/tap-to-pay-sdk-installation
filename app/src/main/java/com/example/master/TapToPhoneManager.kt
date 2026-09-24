@@ -12,9 +12,9 @@ import io.mpos.provider.ProviderMode
 
 object TapToPhoneManager {
 
-    private var merchantId = "cc11dee7-2d9e-42da-b4fb-deaef727418e"
+    private var merchantId = "visaacceptancedev_t2p"
 //    or should i use Organization ID : ke_ttptest as merchantid
-    private var merchantSecret = "Ogvcqb4rhSpIfCOtlGwx0NxHSQMafBPW"
+    private var merchantSecret = "5McFq/Y5veoP92P/OprWm0z+UDrBquani+pEZ8lLdiY="
     val isConfigured: Boolean get() = merchantId.isNotBlank() && merchantSecret.isNotBlank()
 
     // Sandbox credentials stay in memory; never persist or compile secrets into the APK.

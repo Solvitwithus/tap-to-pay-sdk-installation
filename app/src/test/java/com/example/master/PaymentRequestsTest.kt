@@ -23,7 +23,7 @@ class PaymentRequestsTest {
     }
 
     @Test fun normalizesCurrencyAndRejectsUnknownCodes() {
-        assertEquals(Currency.EUR, PaymentRequests.currency(" eur "))
+        assertEquals(Currency.KES, PaymentRequests.currency(" kes "))
         assertThrows(IllegalArgumentException::class.java) { PaymentRequests.currency("XYZ") }
     }
 
@@ -33,8 +33,8 @@ class PaymentRequestsTest {
     }
 
     @Test fun buildsSaleAndBothRefundTypes() {
-        assertNotNull(PaymentRequests.sale("1.25", "EUR", "order-123"))
+        assertNotNull(PaymentRequests.sale("1.25", "KES", "order-123"))
         assertNotNull(PaymentRequests.refund("original-id", "", ""))
-        assertNotNull(PaymentRequests.refund("original-id", "0.50", "EUR"))
+        assertNotNull(PaymentRequests.refund("original-id", "0.50", "KES"))
     }
 }

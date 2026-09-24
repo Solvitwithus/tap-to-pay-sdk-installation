@@ -12,17 +12,25 @@ import io.mpos.provider.ProviderMode
 
 object TapToPhoneManager {
 
-    // TODO: fill in with the merchant ID and secret key from the Cybersource/Visa Acceptance
-    // Devices test environment (see "Generating a Secret Key for an Existing Merchant ID").
-    // Swap ProviderMode.TEST for ProviderMode.LIVE + production credentials when going live.
-    private const val MERCHANT_ID = "" // TODO
-    private const val MERCHANT_SECRET = "" // TODO
+    private var merchantId = "cc11dee7-2d9e-42da-b4fb-deaef727418e"
+//    or should i use Organization ID : ke_ttptest as merchantid
+    private var merchantSecret = "Ogvcqb4rhSpIfCOtlGwx0NxHSQMafBPW"
+    val isConfigured: Boolean get() = merchantId.isNotBlank() && merchantSecret.isNotBlank()
+
+    // Sandbox credentials stay in memory; never persist or compile secrets into the APK.
+    fun configureTestCredentials(id: String, secret: String) {
+        check(!isConfigured) { "Restart the app to change merchant credentials." }
+        require(id.isNotBlank() && secret.isNotBlank()) { "Enter merchant ID and secret key." }
+        merchantId = id.trim()
+        merchantSecret = secret.trim()
+    }
 
     val mposUi: MposUi by lazy {
+        check(isConfigured) { "Configure test merchant credentials first." }
         MposUi.create(
             providerMode = ProviderMode.TEST,
-            merchantId = MERCHANT_ID,
-            merchantSecret = MERCHANT_SECRET,
+            merchantId = merchantId,
+            merchantSecret = merchantSecret,
             terminalParameters = AccessoryParameters.Builder(AccessoryFamily.TAP_TO_PHONE)
                 .integrated()
                 .build()

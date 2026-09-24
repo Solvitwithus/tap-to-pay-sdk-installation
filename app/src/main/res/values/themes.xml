@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Master" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- The SDK enrollment activity inherits this theme and requires AppCompat. -->
+    <style name="Theme.Master" parent="Theme.AppCompat.Light.NoActionBar" />
 
     <!-- Tap to Pay Default UI branding, applied to io.mpos.paybutton.PaybuttonActivity below -->
     <style name="Theme.Master.TapToPhone" parent="Theme.PayButton2">
